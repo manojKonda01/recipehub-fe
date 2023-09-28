@@ -1,0 +1,36 @@
+
+{
+   // Recipe Collection
+   "_id": "ObjectId(recipe_id)",
+   "title": "Recipe Title",
+   "description": "Recipe Description",
+   "preparation_time": "30 minutes",
+   "cooking_time": "45 minutes",
+   "servings": 4,
+   "instructions": ["Step 1: ...", "Step 2: ...", "Step 3: ..."],
+   "ingredients": [
+      { "name": "Ingredient 1", "measurement": "cups", "quantity": 2 },
+      { "name": "Ingredient 2", "measurement": "tablespoons", "quantity": 4 },
+   ],
+   "image_url": "https://example.com/recipe-image.jpg",
+   "categories": ["Dinner", "Italian", "Pasta"],
+   "reviews": [
+      {
+         "user_id": "ObjectId(user_id_1)",
+         "rating": 4,
+         "comment": "Delicious!",
+         "timestamp": "ISODate(2023-01-15T10:30:00Z)"
+      }
+   ]
+}
+
+{
+   // User Collection
+   "_id": "ObjectId(user_id)",
+   "username": "john_doe",
+   "password": "hashed_password",
+   "email": "john@example.com",
+   "profile_picture_url": "https://example.com/profile.jpg",
+   "join_date": "ISODate(2023-01-01T08:00:00Z)",
+   "favorite_recipes": ["ObjectId(recipe_id_1)", "ObjectId(recipe_id_2)"],
+}
