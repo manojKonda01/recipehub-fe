@@ -1,3 +1,4 @@
+// JS file for category template
 // Get the full URL
 const currentURL = window.location.href;
 
