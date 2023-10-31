@@ -1,37 +1,51 @@
 [
     {
-        "name":"Ratatoullie",
-        "url":"media/image/popular/ratatoullie.jpeg",
-        "by":"Chef Name"
+        "label":"Ratatoullie",
+        "image":"media/image/popular/ratatoullie.jpeg",
+        "dishType": ["main course"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"French Toadt",
-        "url":"media/image/popular/french_toast.jpeg",
-        "by":"Chef Name"
+        "label":"French Toast",
+        "image":"media/image/popular/french_toast.jpeg",
+        "dishType": ["breakfast"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"Chocolava",
-        "url":"media/image/popular/chocolava.jpeg",
-        "by":"Chef Name"
+        "label":"Chocolava",
+        "image":"media/image/popular/chocolava.jpeg",
+        "dishType": ["dessert"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"Lasagna",
-        "url":"media/image/popular/lasagna.jpeg",
-        "by":"Chef"
+        "label":"Lasagna",
+        "image":"media/image/popular/lasagna.jpeg",
+        "dishType": ["main course"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"Over Baked Salmon",
-        "url":"media/image/popular/oven_baked_salmon.jpeg",
-        "by":"Chef"
+        "label":"Over Baked Salmon",
+        "image":"media/image/popular/oven_baked_salmon.jpeg",
+        "dishType": ["sea food"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"Pancakes",
-        "url":"media/image/popular/pancakes.jpeg",
-        "by":"Chef"
+        "label":"Pancakes",
+        "image":"media/image/popular/pancakes.jpeg",
+        "dishType": ["breakfast"],
+        "uri":"#",
+        "url":"#"
     },
     {
-        "name":"White Sauce Pasta",
-        "url":"media/image/popular/white_sauce_pasta.jpeg",
-        "by":"Chef"
+        "label":"White Sauce Pasta",
+        "image":"media/image/popular/white_sauce_pasta.jpeg",
+        "dishType": ["pasta"],
+        "uri":"#",
+        "url":"#"
     }
 ]
