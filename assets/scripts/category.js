@@ -1,12 +1,14 @@
-// JS file for category template
 // Get the full URL
 const currentURL = window.location.href;
 
 // Get the query parameters from the URL
 const urlSearchParams = new URLSearchParams(window.location.search);
 searchQuery = urlSearchParams.get('query');
+const fixedSearchQuery = searchQuery;
 pageType = urlSearchParams.get('type');
 value = urlSearchParams.get('value');
+
+const quick = '30';
 
 const searchRecipes = document.querySelector('.search-container');
 const categoryHeading = document.querySelector('.recipes h1');
@@ -14,9 +16,17 @@ if (pageType === 'search') {
   // Show Search Input for pageType = 'search' parameter
   searchRecipes.style.display = 'flex';
   categoryHeading.innerText = 'Search Results';
-} else {
+}
+else if(pageType === 'time'){
+    searchRecipes.style.display = 'none';
+    categoryHeading.innerHTML = 'Quick + Easy Recipes';
+}
+else {
   searchRecipes.style.display = 'none';
-  categoryHeading.innerText = formatRecipeName(value) + ' Recipes';
+  categoryHeading.innerText =
+    value.length > 0
+      ? formatRecipeName(value)
+      : 'All ' + formatRecipeName(pageType) + 's';
 }
 
 searchQuery = searchQuery === null ? '' : searchQuery;
@@ -31,19 +41,21 @@ window.onload = function () {
       request = generateDefaultRequest();
     }
   } else {
-    request = `&${pageType}=${value}`;
+    request =
+      value.length > 0
+        ? `&${pageType}=${value}`
+        : `&${pageType}=${filters[pageType].join(`&${pageType}=`)}`;
   }
   loadRecipes(searchQuery, request, 1);
 };
 
 const generateDefaultRequest = () => {
   let requestData = '';
-  requestData += '&dishType=' + filters['dish_type'].join('&dishType=');
-  requestData +=
-    '&cuisineType=' + filters['cuisine_type'].join('&cuisineType=');
+  requestData += '&dishType=' + filters['dishType'].join('&dishType=');
+  requestData += '&cuisineType=' + filters['cuisineType'].join('&cuisineType=');
   // requestData += '&diet='+filters['diet'].join('&diet=');
   //   requestData += '&health=' + filters['health'].join('&health=');
-  requestData += '&mealType=' + filters['meal_type'].join('&mealType=');
+  requestData += '&mealType=' + filters['mealType'].join('&mealType=');
   return requestData;
 };
 // Load Filter By Js
@@ -172,7 +184,13 @@ const loadFiltersDOM = () => {
           filterString = generateDefaultRequest();
         }
       } else {
-        filterString = `&${pageType}=${value}` + filterString;
+        console.log('filter', filterString);
+        const addRequest =
+          value.length > 0
+            ? `&${pageType}=${value}`
+            : `&${pageType}=${filters[pageType].join(`&${pageType}=`)}`;
+        filterString += addRequest;
+        console.log('filter', filterString);
       }
       loadRecipes(searchQuery, filterString, 1);
     });
@@ -207,6 +225,11 @@ function searchHandleKeyPress(event) {
 }
 function searchHandleSubmit(event) {
   const searchMoreInput = document.getElementById('search_more_input').value;
-  searchQuery = searchMoreInput;
+  if(searchMoreInput.length > 0){
+    searchQuery =  searchMoreInput;
+  }
+  else{
+    searchQuery = fixedSearchQuery;
+  }
   loadRecipes(searchQuery, '', 1);
 }
