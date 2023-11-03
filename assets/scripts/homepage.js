@@ -1,20 +1,20 @@
-
+// Function to Query and get Recipes
 function handleKeyPress(event) {
     if (event.key === "Enter") {
-        const searchInput = document.getElementById("search_recipes").value;
-
-        // Redirect to the results page with the search input as a query parameter
-        window.location.href = `assets/templates/category.html?type=search&query=${searchInput}`;
-        event.preventDefault();
+        handleSubmit(event);
     }
 }
+
+// Function to Query and get Recipes
 function handleSubmit(event){
     const searchInput = document.getElementById("search_recipes").value;
+    // Redirect to the results page with the search input as a query parameter
     window.location.href = `assets/templates/category.html?type=search&query=${searchInput}`;
     event.preventDefault();
 }
+
+
 window.onload = function () {
-    // Fetch Most Popular recipes (for now fetching from json file)
     load_popular_recipes_section();
     load_quickRecipes_DOM();
     load_recommended_recipes();
@@ -54,8 +54,8 @@ const load_recommended_recipes = async () => {
     const login = false;
     // If no login show Random Recipes
     if (!login) {
-        document.getElementById('recommended_section_text').innerHTML = 'Random Recipes';
-        const randomDishTypes = getRandomDishTypeSubarrays(filters['dish_type'], 8);
+        document.getElementById('recommended_section_text').innerHTML = 'Recommended Recipes';
+        const randomDishTypes = getRandomDishTypeSubarrays(filters['dishType'], 8);
         const dishTypeQuery = randomDishTypes.map(type => `&dishType=${type}`).join('+');
         const randomRecipeData = await fetchReturnDataJson(apiUrl, `&from=${0}&to=${4}` + dishTypeQuery);
         console.log(randomRecipeData);
@@ -96,7 +96,7 @@ playVideo.addEventListener('click', function () {
 const quickRecipesData = async (from, to) => {
     const maxTime = 30;
     const sort = 'alphabet';
-    const randomDishTypes = getRandomDishTypeSubarrays(filters['dish_type'], 12);
+    const randomDishTypes = getRandomDishTypeSubarrays(filters['dishType'], 12);
     const dishTypeQuery = randomDishTypes.map(type => `&dishType=${type}`).join('+');
     const requestData = `&time=0-${maxTime}&sort=${sort}&from=${from}&to=${to}${dishTypeQuery}`;
     // fetchReturnDataJson() is in common.js file

@@ -493,7 +493,7 @@ main{
 .recipe-for-top{
     margin: 1rem;
 }
-.recipe-for-top a{
+.recipe-for-top p{
     font-size: xx-large;
     color: black;
     text-decoration: underline;
@@ -506,6 +506,7 @@ main{
 .recipe-for-top i{
     padding: 0.5rem;
 }
-.recipe-for-top a:hover{
+.recipe-for-top p:hover{
     text-decoration-color:#DC582A;
+    cursor: pointer;
 }
