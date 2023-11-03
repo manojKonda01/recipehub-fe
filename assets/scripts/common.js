@@ -147,7 +147,7 @@ for (let i = 0; i < mealList.length; i++) {
   mealList[i].addEventListener('click', function (event) {
     const type = mealList[i].getAttribute('data-category');
     const value = mealList[i].getAttribute('data-value');
-    window.location.href = `/assets/templates/category.html?type=${type}&value=${value}`;
+    window.location.href = `assets/templates/category.html?type=${type}&value=${value}`;
   });
 }
 
