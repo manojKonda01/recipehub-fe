@@ -184,13 +184,11 @@ const loadFiltersDOM = () => {
           filterString = generateDefaultRequest();
         }
       } else {
-        console.log('filter', filterString);
         const addRequest =
           value.length > 0
             ? `&${pageType}=${value}`
             : `&${pageType}=${filters[pageType].join(`&${pageType}=`)}`;
         filterString += addRequest;
-        console.log('filter', filterString);
       }
       loadRecipes(searchQuery, filterString, 1);
     });
