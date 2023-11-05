@@ -1,2 +1,2 @@
 Recipe Hub:
-https://github.com/manojKonda01/recipehub
+https://manojkonda01.github.io/recipehub/
